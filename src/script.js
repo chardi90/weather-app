@@ -31,6 +31,6 @@ let weather = [
   },
 ];
 
-alert(
+console.log(
   `It is currently ${city.temp}°C (${city.faren}°F) in ${city} with a humidity of ${city.humidity}%`
 );
