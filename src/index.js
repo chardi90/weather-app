@@ -8,28 +8,31 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#current-humidity");
   let currentWind = response.data.wind.speed;
   let windElement = document.querySelector("#current-wind");
+  let unit = "metric";
+  let windSpeedUnit = document.querySelector("#wind-unit");
+
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = temperature;
   conditionsElement.innerHTML = `${currentConditions}`;
   humidityElement.innerHTML = `${currentHumidity}%`;
   windElement.innerHTML = `${currentWind}`;
+
+  if (unit === "metric") {
+    windSpeedUnit.innerHTML = `km/h`;
+  } else {
+    windSpeedUnit.innerHTML = `mph`;
+  }
+  console.log(`response`);
 }
 
 function search(event) {
   event.preventDefault();
   let searchInputElement = document.querySelector("#search-input");
   let city = searchInputElement.value;
-  let windSpeedUnit = document.querySelector("#wind-unit");
 
   let apiKey = "a2t477eebb3f98daaa0d6cf85ob51907";
   let unit = "metric";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${unit}`;
-
-  if (unit === "metric") {
-    windSpeedUnit.innerHTML = "km/h";
-  } else {
-    windSpeedUnit.innerHTML = "mph";
-  }
 
   axios.get(apiUrl).then(displayTemperature);
 }
