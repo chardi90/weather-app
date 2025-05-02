@@ -3,132 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
-    <link rel="stylesheet" href="src/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>My weather application</title>
   </head>
   <body>
-    <div class="container">
+    <div class="weather-app">
       <header>
-        <a
-          href="https://www.shecodes.io/"
-          alt="SheCodes Website"
-          class="headerLink"
-          target="_blank"
-          ><img
-            src="https://www.shecodes.io/assets/branding/logo-shecodes-3dfa60aeab8ef361842da5a2b6d46db3af1b7afafefee3dde0a9846389de754b.png"
-            alt="Logo"
-            class="logo"
-        /></a>
+        <form id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            required
+            class="search-input"
+            id="search-input"
+          />
+          <input type="submit" value="Search" class="search-button" />
+        </form>
       </header>
-      <form>
-        <input
-          type="search"
-          name="city"
-          id="city"
-          placeholder="Enter a city..."
-          required
-        />
-        <input type="submit" value="Search" />
-      </form>
-      <section class="weather">
-        <div class="weather-grid">
-          <div class="weather-grid-left">
-            <h1>San Francisco</h1>
-            <ul>
-              <li class="time-sky">Wednesday 10:22, broken clouds</li>
-              <li class="humidity-wind">
-                Humitity: <span class="humitity data">85%</span>, Wind:
-                <span class="windspeed data">8.49km/h</span>
-              </li>
-            </ul>
+      <main>
+        <div class="current-weather">
+          <div>
+            <h1 class="current-city" id="current-city">Paris</h1>
+            <p class="current-details">
+              <span id="current-date"></span>,
+              <span id="current-conditions">moderate rain</span> <br />
+              Humidity: <strong id="current-humidity">87%</strong>, Wind:
+              <strong id="current-wind"
+                >7.2<span id="wind-unit">km/h</span></strong
+              >
+            </p>
           </div>
-          <div class="weather-grid-right">
-            <h2>
-              <span class="weather-emoji">#</span
-              ><span class="temperature">10</span><span class="unit">°C</span>
-            </h2>
+          <div class="current-temperature">
+            <span class="current-temperature-icon">☀️</span
+            ><span class="current-temperature-value" id="current-temperature"
+              >24</span
+            ><span class="current-temperature-unit">°C</span>
           </div>
         </div>
-        <div class="forecast">
-          <ul>
-            <li class="day">
-              <span class="day-1">Wed</span>
-              <br />
-              <span class="weather-emoji">#</span>
-              <br />
-              <span class="high-temp">12°</span>
-              <span class="low-temp">9°</span>
-            </li>
-            <li class="day">
-              <span class="day-2">Thu</span>
-              <br />
-              <span class="weather-emoji">#</span>
-              <br />
-              <span class="high-temp">12°</span>
-              <span class="low-temp">11°</span>
-            </li>
-            <li class="day">
-              <span class="day-3">Fri</span>
-              <br />
-              <span class="weather-emoji">#</span>
-              <br />
-              <span class="high-temp">13°</span>
-              <span class="low-temp">10°</span>
-            </li>
-            <li class="day">
-              <span class="day-4">Sat</span>
-              <br />
-              <span class="weather-emoji">#</span>
-              <br />
-              <span class="high-temp">12°</span>
-              <span class="low-temp">10°</span>
-            </li>
-            <li class="day">
-              <span class="day-5">Sun</span>
-              <br />
-              <span class="weather-emoji">#</span>
-              <br />
-              <span class="high-temp">14°</span>
-              <span class="low-temp">10°</span>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </main>
       <footer>
         <p>
           This project was coded by
-          <a
-            href="https://www.linkedin.com/in/clare-harding-4174a48a/"
-            alt="SheCodes Website"
-            class="footerLink"
-            target="_blank"
+          <a href="https://github.com/chardi90" target="_blank" rel="noreferrer"
             >Clare Harding</a
           >
           and is
           <a
-            href="https://github.com/shecodesio/weather"
-            alt="GitHub Weather Data"
-            class="footerLink"
+            href="https://github.com/chardi90/weather-app"
             target="_blank"
-            >open-sourced on GitHub</a
+            rel="noreferrer"
+          >
+            on GitHub</a
           >
           and
           <a
-            href="https://shecodes-weather.netlify.app/"
-            alt="Netifly Hosting Website"
-            class="footerLink"
+            href="https://luxury-stardust-9966ed.netlify.app/"
             target="_blank"
+            rel="noreferrer"
             >hosted on Netlify</a
           >
         </p>
       </footer>
     </div>
-    <script src="src/script.js"></script>
   </body>
+  <script src="src/index.js"></script>
 </html>
